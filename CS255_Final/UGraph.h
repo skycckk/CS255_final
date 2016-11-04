@@ -28,6 +28,7 @@ public:
     ~UGraph();
     
     bool Initialize(string path);
+    unordered_map<int, Vertex> GetVertices();
     
 private:
     

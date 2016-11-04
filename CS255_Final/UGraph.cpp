@@ -69,3 +69,8 @@ bool UGraph::Initialize(string path)
     
     return true;
 }
+
+unordered_map<int, Vertex> UGraph::GetVertices()
+{
+    return m_vertices;
+}
