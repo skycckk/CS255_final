@@ -20,6 +20,19 @@ struct Vertex
     int id;
     vector<Vertex> friends;
 };
+typedef unordered_map<int, Vertex> GraphType;
+
+struct Graph
+{
+    unsigned int vertices_number;
+    GraphType *p_graph_type;
+    
+    Graph()
+    {
+        vertices_number = 0;
+        p_graph_type = NULL;
+    }
+};
 
 class UGraph
 {
@@ -28,12 +41,12 @@ public:
     ~UGraph();
     
     bool Initialize(string path);
-    unordered_map<int, Vertex> GetVertices();
+    Graph GetVertices();
     
 private:
     
-    unordered_map<int, Vertex> m_vertices;
-    
+    Graph m_graph;
+    GraphType m_vertices;
 };
 
 

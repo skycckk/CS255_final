@@ -28,6 +28,7 @@ bool UGraph::Initialize(string path)
     ifstream infile(path.c_str());
     string str;
     string delimiter = " ";
+    int total_vertices = 0;
     while (std::getline(infile, str))
     {
         // Process str
@@ -49,28 +50,43 @@ bool UGraph::Initialize(string path)
             int v1_id = stoi(tokens[0]);
             int v2_id = stoi(tokens[1]);
             
-            Vertex v_friend;
-            v_friend.id = v2_id;
+            Vertex v1_vertex;
+            v1_vertex.id = v1_id;
+            Vertex v2_vertex;
+            v2_vertex.id = v2_id;
             if (m_vertices.find(v1_id) == m_vertices.end())
             {
-                Vertex vertex;
-                vertex.id = v1_id;
-                vertex.friends.push_back(v_friend);
-                
-                m_vertices.insert({v1_id, vertex});
+                v1_vertex.friends.push_back(v2_vertex);
+                m_vertices.insert({v1_id, v1_vertex});
+                m_graph.vertices_number++;
+                total_vertices++;
             }
             else
             {
-                m_vertices.at(v1_id).friends.push_back(v_friend);
+                m_vertices.at(v1_id).friends.push_back(v2_vertex);
+            }
+            
+            if (m_vertices.find(v2_id) == m_vertices.end())
+            {
+                v2_vertex.friends.push_back(v1_vertex);
+                m_vertices.insert({v2_id, v2_vertex});
+                m_graph.vertices_number++;
+                total_vertices++;
+            }
+            else
+            {
+                m_vertices.at(v2_id).friends.push_back(v1_vertex);
             }
         }
     }
     infile.close();
     
+    m_graph.vertices_number = total_vertices;
+    m_graph.p_graph_type = &m_vertices;
     return true;
 }
 
-unordered_map<int, Vertex> UGraph::GetVertices()
+Graph UGraph::GetVertices()
 {
-    return m_vertices;
+    return m_graph;
 }
