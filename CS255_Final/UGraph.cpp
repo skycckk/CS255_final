@@ -86,6 +86,19 @@ bool UGraph::Initialize(string path)
     return true;
 }
 
+void UGraph::RemoveEdge(Vertex w, Vertex v)
+{
+    Vertex *pw_internal = &m_graph.p_graph_type->at(w.id);
+    for (int i = 0; i < pw_internal->friends.size(); i++)
+    {
+        if (pw_internal->friends[i].id == v.id)
+        {
+            pw_internal->friends.erase(pw_internal->friends.begin() + i);
+            break;
+        }
+    }
+}
+
 Graph UGraph::GetVertices()
 {
     return m_graph;
