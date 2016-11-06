@@ -42,6 +42,7 @@ public:
     
     bool Initialize(string path);
     Graph GetVertices();
+    void GetVerticesCopy(Graph &graph);
     void RemoveEdge(Vertex w, Vertex v);
     
 private:

@@ -103,3 +103,14 @@ Graph UGraph::GetVertices()
 {
     return m_graph;
 }
+
+
+void UGraph::GetVerticesCopy(Graph &graph)
+{
+    if (graph.p_graph_type)
+    {
+        *graph.p_graph_type = m_vertices;
+        graph.vertices_number = m_graph.vertices_number;
+    }
+}
+
