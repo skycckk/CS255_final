@@ -18,7 +18,7 @@ int main(int argc, const char * argv[])
     fb_graph.Initialize("../../dataset/facebook_combined.txt");
     
     RankDegreeAlgo DD = RankDegreeAlgo();
-    DD.Process(fb_graph, 10, 0.5, 88234 / 2);
+    DD.Process(fb_graph, 10, 0.5, 4039 / 2);
     
     return 0;
 }

@@ -22,6 +22,8 @@ public:
 private:
     Graph m_sub_graph;
     GraphType m_sub_vertices;
+    
+    void RandomShuffle(std::vector<int> &v);
 };
 
 #endif /* RankDegreeAlgo_h */
