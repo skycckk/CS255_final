@@ -14,12 +14,6 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    // insert code here...
-    cout << "Hello, World!\n";
-    
-    if (argc > 1)
-        cout << argv[1] << endl;
-    
     UGraph fb_graph;
     fb_graph.Initialize("../../dataset/facebook_combined.txt");
     
