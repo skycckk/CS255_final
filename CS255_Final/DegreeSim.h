@@ -17,9 +17,10 @@ public:
     DegreeSim();
     ~DegreeSim();
     
-    void GeneratePDF(Graph *p_g1, Graph *p_g2);
+    float ProcessDegSim(Graph *p_g1, Graph *p_g2);
     
 private:
+    void GeneratePDF(Graph *p_g1, Graph *p_g2);
     void GeneratePDF(Graph *p_g, int index);
     void GenerateCDF(int index);
     
