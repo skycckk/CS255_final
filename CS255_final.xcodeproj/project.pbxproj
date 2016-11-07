@@ -10,6 +10,7 @@
 		B07107871DCD19620009C436 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107861DCD19620009C436 /* main.cpp */; };
 		B071078E1DCD2D800009C436 /* UGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B071078D1DCD2D800009C436 /* UGraph.cpp */; };
 		B07107921DCD2E0E0009C436 /* RankDegreeAlgo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107901DCD2E0E0009C436 /* RankDegreeAlgo.cpp */; };
+		B07107961DCFC7EA0009C436 /* DegreeSim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107951DCFC7EA0009C436 /* DegreeSim.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		B071078F1DCD2D8C0009C436 /* UGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGraph.h; sourceTree = "<group>"; };
 		B07107901DCD2E0E0009C436 /* RankDegreeAlgo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RankDegreeAlgo.cpp; sourceTree = "<group>"; };
 		B07107941DCD2E560009C436 /* RankDegreeAlgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankDegreeAlgo.h; sourceTree = "<group>"; };
+		B07107951DCFC7EA0009C436 /* DegreeSim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DegreeSim.cpp; sourceTree = "<group>"; };
+		B07107991DCFC8150009C436 /* DegreeSim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DegreeSim.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				B071078F1DCD2D8C0009C436 /* UGraph.h */,
 				B07107901DCD2E0E0009C436 /* RankDegreeAlgo.cpp */,
 				B07107941DCD2E560009C436 /* RankDegreeAlgo.h */,
+				B07107951DCFC7EA0009C436 /* DegreeSim.cpp */,
+				B07107991DCFC8150009C436 /* DegreeSim.h */,
 			);
 			path = CS255_Final;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				B071078E1DCD2D800009C436 /* UGraph.cpp in Sources */,
 				B07107921DCD2E0E0009C436 /* RankDegreeAlgo.cpp in Sources */,
 				B07107871DCD19620009C436 /* main.cpp in Sources */,
+				B07107961DCFC7EA0009C436 /* DegreeSim.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
