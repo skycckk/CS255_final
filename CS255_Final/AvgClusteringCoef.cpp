@@ -19,10 +19,16 @@ AvgClusteringCoef::~AvgClusteringCoef()
     
 }
 
-void AvgClusteringCoef::ProcessACC(Graph *p_g1, Graph *p_g2)
+float AvgClusteringCoef::ProcessNMSE(Graph *p_g1, Graph *p_g2)
 {
     float acc1 = GenerateACC(p_g1);
     float acc2 = GenerateACC(p_g2);
+    
+    float mse = ComputeMSE(acc1, acc2);
+    float ground_mse = ComputeMSE(acc1, 0);
+    float nmse = mse / ground_mse;
+    printf("NMSE: %f. MSE: %f and G-MSE: %f\n", nmse, mse, ground_mse);
+    return nmse;
 }
 
 float AvgClusteringCoef::GenerateACC(Graph *p_g)
@@ -31,6 +37,7 @@ float AvgClusteringCoef::GenerateACC(Graph *p_g)
         return 0.f;
     
     float acc = 0.f;
+    int vertices_count = 0;
     for (auto it = p_g->p_graph_type->begin(); it != p_g->p_graph_type->end(); it++)
     {
         Vertex vi = it->second;
@@ -49,9 +56,21 @@ float AvgClusteringCoef::GenerateACC(Graph *p_g)
         
         float lcc = (float)total_friend_edges / vi.friends.size();
         acc += lcc;
+        vertices_count++;
     }
     
-    acc = acc / p_g->vertices_number;
+    if (vertices_count != p_g->vertices_number)
+    {
+        printf("ERROR: Wrong Vertices\n");
+        return 0.f;
+    }
+    
+    acc = acc / vertices_count;
     return acc;
+}
+
+float AvgClusteringCoef::ComputeMSE(float x, float y)
+{
+    return (x - y) * (x - y);
 }
 

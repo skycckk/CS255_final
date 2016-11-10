@@ -17,10 +17,11 @@ public:
     AvgClusteringCoef();
     ~AvgClusteringCoef();
     
-    void ProcessACC(Graph *p_g1, Graph *p_g2);
+    float ProcessNMSE(Graph *p_g1, Graph *p_g2);
     
 private:
     float GenerateACC(Graph *p_g);
+    float ComputeMSE(float x, float y);
 };
 
 
