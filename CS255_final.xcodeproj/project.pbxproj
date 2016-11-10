@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B05C79F01DD4FEB8001A66C0 /* AvgClusteringCoef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B05C79EF1DD4FEB8001A66C0 /* AvgClusteringCoef.cpp */; };
 		B07107871DCD19620009C436 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107861DCD19620009C436 /* main.cpp */; };
 		B071078E1DCD2D800009C436 /* UGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B071078D1DCD2D800009C436 /* UGraph.cpp */; };
 		B07107921DCD2E0E0009C436 /* RankDegreeAlgo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107901DCD2E0E0009C436 /* RankDegreeAlgo.cpp */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B05C79EF1DD4FEB8001A66C0 /* AvgClusteringCoef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AvgClusteringCoef.cpp; sourceTree = "<group>"; };
+		B05C79F11DD4FEC0001A66C0 /* AvgClusteringCoef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvgClusteringCoef.h; sourceTree = "<group>"; };
 		B07107831DCD19620009C436 /* CS255_Final */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS255_Final; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07107861DCD19620009C436 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B071078C1DCD1DC90009C436 /* facebook_combined.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = facebook_combined.txt; path = dataset/facebook_combined.txt; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				B07107941DCD2E560009C436 /* RankDegreeAlgo.h */,
 				B07107951DCFC7EA0009C436 /* DegreeSim.cpp */,
 				B07107991DCFC8150009C436 /* DegreeSim.h */,
+				B05C79EF1DD4FEB8001A66C0 /* AvgClusteringCoef.cpp */,
+				B05C79F11DD4FEC0001A66C0 /* AvgClusteringCoef.h */,
 			);
 			path = CS255_Final;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B071078E1DCD2D800009C436 /* UGraph.cpp in Sources */,
+				B05C79F01DD4FEB8001A66C0 /* AvgClusteringCoef.cpp in Sources */,
 				B07107921DCD2E0E0009C436 /* RankDegreeAlgo.cpp in Sources */,
 				B07107871DCD19620009C436 /* main.cpp in Sources */,
 				B07107961DCFC7EA0009C436 /* DegreeSim.cpp in Sources */,
