@@ -24,6 +24,7 @@ private:
     GraphType m_sub_vertices;
     
     void RandomShuffle(std::vector<int> &v);
+    void RandomShuffle(std::vector<std::pair<int, int>> &v);
 };
 
 #endif /* RankDegreeAlgo_h */

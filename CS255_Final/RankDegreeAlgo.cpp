@@ -14,10 +14,12 @@
 
 struct VertexCompGreater
 {
-    inline bool operator() (const Vertex& struct1, const Vertex& struct2)
+    // <id, friend.size>
+    inline bool operator() (const std::pair<int, int> &struct1, const std::pair<int, int> &struct2)
     {
-        return (struct1.id > struct2.id);
+        return (struct1.second > struct2.second);
     }
+    
 } VertexCompGreater;
 
 RankDegreeAlgo::RankDegreeAlgo()
@@ -74,10 +76,20 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
             // Find w's friends degree in top-k
             int number_friends = (int)(p_w->friends.size());
             int top_k = max((int)roundf(number_friends * p), 1);
-            std::sort(p_w->friends.begin(), p_w->friends.end(), VertexCompGreater);
+            std::vector<std::pair<int, int>> friends_vertices_tuple;
+            for (int z = 0; z < p_w->friends.size(); z++)
+            {
+                int f_id = p_w->friends[z].id;
+                int f_size = (int)(G.p_graph_type->at(f_id)).friends.size();
+                std::pair<int, int> test_pair(f_id, f_size);
+                friends_vertices_tuple.push_back(test_pair);
+            }
+            std::sort(friends_vertices_tuple.begin(), friends_vertices_tuple.end(), VertexCompGreater);
+            
             for (int j = 0; j < top_k; j++)
             {
-                Vertex friend_v = p_w->friends[j];
+                Vertex friend_v;
+                friend_v.id = G.p_graph_type->at(friends_vertices_tuple[j].first).id;
                 
                 // check dupcliated
                 bool has_duplicated = false;
@@ -181,6 +193,14 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
 }
 
 void RankDegreeAlgo::RandomShuffle(std::vector<int> &v)
+{
+    std::random_device rd;
+    std::mt19937 g(rd());
+    
+    std::shuffle (v.begin(), v.end(), g);
+}
+
+void RankDegreeAlgo::RandomShuffle(std::vector<std::pair<int, int>> &v)
 {
     std::random_device rd;
     std::mt19937 g(rd());
