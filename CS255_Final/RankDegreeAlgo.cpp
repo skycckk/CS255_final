@@ -73,7 +73,7 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
             
             // Find w's friends degree in top-k
             int number_friends = (int)(p_w->friends.size());
-            int top_k = roundf(number_friends * p);
+            int top_k = max((int)roundf(number_friends * p), 1);
             std::sort(p_w->friends.begin(), p_w->friends.end(), VertexCompGreater);
             for (int j = 0; j < top_k; j++)
             {
