@@ -14,6 +14,8 @@
 #include <math.h>
 #include <random>
 
+#define USE_RANDOM_ALL
+
 static struct VertexCompGreater
 {
     // <id, friend.size>
@@ -51,8 +53,11 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
     RandomShuffle(v_vertices);
     for (int i = 0; i < s; i++)
     {
+#ifdef USE_RANDOM_ALL
+        int id = v_vertices[i];
+#else
         int id = rand() % number_vertices;
-        //        int id = v_vertices[i];
+#endif
         seeds.push_back(G.p_graph_type->at(id));
     }
     
@@ -139,7 +144,9 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
         if (sample_size > x)
         {
             int to_be_removed_sample_size = sample_size - x;
-            //            RandomShuffle(pending_friends);
+#ifdef USE_RANDOM_ALL
+            RandomShuffle(pending_friends);
+#endif
             for (int i = 0; i < to_be_removed_sample_size; i++)
             {
                 int remove_id = pending_friends[i];
