@@ -26,6 +26,9 @@ float AvgClusteringCoef::ProcessNMSE(Graph *p_g1, Graph *p_g2)
     
     float mse = ComputeMSE(acc1, acc2);
     float ground_mse = ComputeMSE(acc1, 0);
+    if (mse == 0 || ground_mse == 0)
+        return 0.f;
+    
     float nmse = mse / ground_mse;
     return nmse;
 }
