@@ -1,11 +1,13 @@
 //
-//  RankDegreeAlgo.cpp
+//  RankDegreeAlgoRefined.cpp
 //  CS255_final
 //
-//  Created by Wayne Huang on 11/4/16.
+//  Created by Wayne Huang on 11/13/16.
 //
 //
 
+#include <stdio.h>
+#include "RankDegreeAlgoRefined.h"
 #include "RankDegreeAlgo.h"
 #include <stdlib.h>
 #include <time.h>
@@ -22,17 +24,17 @@ static struct VertexCompGreater
     
 } VertexCompGreater;
 
-RankDegreeAlgo::RankDegreeAlgo()
+RankDegreeAlgoRefined::RankDegreeAlgoRefined()
 {
     
 }
 
-RankDegreeAlgo::~RankDegreeAlgo()
+RankDegreeAlgoRefined::~RankDegreeAlgoRefined()
 {
     
 }
 
-Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
+Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
 {
     cout << "Processing..." << endl;
     
@@ -50,7 +52,7 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
     for (int i = 0; i < s; i++)
     {
         int id = rand() % number_vertices;
-//        int id = v_vertices[i];
+        //        int id = v_vertices[i];
         seeds.push_back(G.p_graph_type->at(id));
     }
     
@@ -59,7 +61,6 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
     {
         std::vector<Vertex> new_seeds;
         std::vector<int> pending_friends;
-        cout << "--------seed size " << seeds.size() << endl;
         for (int i = 0; i < seeds.size(); i++)
         {
             Vertex *p_w = &(seeds[i]);
@@ -85,9 +86,14 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
                 friends_vertices_tuple.push_back(test_pair);
             }
             std::sort(friends_vertices_tuple.begin(), friends_vertices_tuple.end(), VertexCompGreater);
-
+            std::default_random_engine generator;
+            std::uniform_int_distribution<int> rand_dist(0, top_k - 1);
             for (int j = 0; j < top_k; j++)
             {
+                int toll = rand_dist(generator);
+                if (top_k > 1 && toll == 1)
+                    continue;
+                
                 Vertex friend_v;
                 friend_v.id = G.p_graph_type->at(friends_vertices_tuple[j].first).id;
                 
@@ -129,8 +135,7 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
         if (sample_size > x)
         {
             int to_be_removed_sample_size = sample_size - x;
-            cout << "TBRemove: " << to_be_removed_sample_size << " PenF: "  << pending_friends.size() << endl;
-            RandomShuffle(pending_friends);
+            //            RandomShuffle(pending_friends);
             for (int i = 0; i < to_be_removed_sample_size; i++)
             {
                 int remove_id = pending_friends[i];
@@ -172,7 +177,6 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
         }
         
         seeds.clear();
-        cout << "new seed size: " << new_seeds.size() << endl;
         if (need_random_jump)
         {
             for (int i = 0; i < s; i++)
@@ -187,12 +191,11 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
         }
     }
     
-    cout << "NewGraphSize: " << m_sub_vertices.size() << " and " << m_sub_graph.vertices_number << endl;
     m_sub_graph.p_graph_type = &m_sub_vertices;
     return m_sub_graph;
 }
 
-void RankDegreeAlgo::RandomShuffle(std::vector<int> &v)
+void RankDegreeAlgoRefined::RandomShuffle(std::vector<int> &v)
 {
     std::random_device rd;
     std::mt19937 g(rd());
@@ -200,7 +203,7 @@ void RankDegreeAlgo::RandomShuffle(std::vector<int> &v)
     std::shuffle (v.begin(), v.end(), g);
 }
 
-void RankDegreeAlgo::RandomShuffle(std::vector<std::pair<int, int>> &v)
+void RankDegreeAlgoRefined::RandomShuffle(std::vector<std::pair<int, int>> &v)
 {
     std::random_device rd;
     std::mt19937 g(rd());

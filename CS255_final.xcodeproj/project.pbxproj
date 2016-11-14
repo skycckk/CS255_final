@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B047A8C61DD9395100F080B6 /* RankDegreeAlgoRefined.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B047A8C51DD9395100F080B6 /* RankDegreeAlgoRefined.cpp */; };
 		B05C79F01DD4FEB8001A66C0 /* AvgClusteringCoef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B05C79EF1DD4FEB8001A66C0 /* AvgClusteringCoef.cpp */; };
 		B07107871DCD19620009C436 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107861DCD19620009C436 /* main.cpp */; };
 		B071078E1DCD2D800009C436 /* UGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B071078D1DCD2D800009C436 /* UGraph.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B047A8C51DD9395100F080B6 /* RankDegreeAlgoRefined.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RankDegreeAlgoRefined.cpp; sourceTree = "<group>"; };
+		B047A8C71DD9396200F080B6 /* RankDegreeAlgoRefined.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankDegreeAlgoRefined.h; sourceTree = "<group>"; };
 		B05C79EF1DD4FEB8001A66C0 /* AvgClusteringCoef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AvgClusteringCoef.cpp; sourceTree = "<group>"; };
 		B05C79F11DD4FEC0001A66C0 /* AvgClusteringCoef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvgClusteringCoef.h; sourceTree = "<group>"; };
 		B07107831DCD19620009C436 /* CS255_Final */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CS255_Final; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +83,8 @@
 				B07107991DCFC8150009C436 /* DegreeSim.h */,
 				B05C79EF1DD4FEB8001A66C0 /* AvgClusteringCoef.cpp */,
 				B05C79F11DD4FEC0001A66C0 /* AvgClusteringCoef.h */,
+				B047A8C51DD9395100F080B6 /* RankDegreeAlgoRefined.cpp */,
+				B047A8C71DD9396200F080B6 /* RankDegreeAlgoRefined.h */,
 			);
 			path = CS255_Final;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				B05C79F01DD4FEB8001A66C0 /* AvgClusteringCoef.cpp in Sources */,
 				B07107921DCD2E0E0009C436 /* RankDegreeAlgo.cpp in Sources */,
 				B07107871DCD19620009C436 /* main.cpp in Sources */,
+				B047A8C61DD9395100F080B6 /* RankDegreeAlgoRefined.cpp in Sources */,
 				B07107961DCFC7EA0009C436 /* DegreeSim.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
