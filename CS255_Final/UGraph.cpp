@@ -105,7 +105,7 @@ Graph UGraph::GetVertices()
 }
 
 
-void UGraph::GetVerticesCopy(Graph &graph)
+void UGraph::GetVerticesCopy(Graph &graph) const
 {
     if (graph.p_graph_type)
     {

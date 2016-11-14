@@ -9,6 +9,7 @@
 #include <iostream>
 #include "UGraph.h"
 #include "RankDegreeAlgo.h"
+#include "RankDegreeAlgoRefined.h"
 #include "DegreeSim.h"
 #include "AvgClusteringCoef.h"
 
@@ -24,16 +25,29 @@ int main(int argc, const char * argv[])
     orig_graph.p_graph_type = &orig_vertices;
     fb_graph.GetVerticesCopy(orig_graph);
     
-    RankDegreeAlgo DD = RankDegreeAlgo();
-    Graph rd_graph = DD.Process(fb_graph, 10, 0.5, 4039 * 0.5f);
+    UGraph fb_graph_test;
+    fb_graph_test = fb_graph;
+    
+    RankDegreeAlgo RD = RankDegreeAlgo();
+    Graph rd_graph = RD.Process(fb_graph, 10, 0.5, 4039 * 0.5f);
+
+    RankDegreeAlgoRefined RD2 = RankDegreeAlgoRefined();
+    Graph rd2_graph = RD2.Process(fb_graph_test, 10, 0.5, 4039 * 0.5f);
 
     DegreeSim degree_sim;
     float deg_sim = degree_sim.ProcessDegSim(&orig_graph, &rd_graph);
     printf("DegSim: %f\n", deg_sim);
     
+    degree_sim.Uninitialize();
+    float deg_sim2 = degree_sim.ProcessDegSim(&orig_graph, &rd2_graph);
+    printf("DegSim2: %f\n", deg_sim2);
+    
     AvgClusteringCoef acc;
-    float nmse = acc.ProcessNMSE(&orig_graph, &rd_graph);
-    printf("NMSE: %f\n", nmse);
+    float nmse1 = acc.ProcessNMSE(&orig_graph, &rd_graph);
+    printf("NMSE1: %f\n", nmse1);
+    
+    float nmse2 = acc.ProcessNMSE(&orig_graph, &rd2_graph);
+    printf("NMSE2: %f\n", nmse2);
     
     return 0;
 }

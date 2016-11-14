@@ -16,7 +16,17 @@ DegreeSim::DegreeSim()
 
 DegreeSim::~DegreeSim()
 {
+    Uninitialize();
+}
 
+void DegreeSim::Uninitialize()
+{
+    for (int i = 0; i < 2; i++)
+    {
+        m_degree_hist[i].clear();
+        m_degree_cdf[i].clear();
+        m_degree_pdf[i].clear();
+    }
 }
 
 float DegreeSim::ProcessDegSim(Graph *p_g1, Graph *p_g2)

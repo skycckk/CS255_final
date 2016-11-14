@@ -40,9 +40,17 @@ public:
     UGraph();
     ~UGraph();
     
+    UGraph& operator=(const UGraph& other)
+    {
+        m_graph.p_graph_type = &m_vertices;
+        other.GetVerticesCopy(m_graph);
+        
+        return *this;
+    }
+
     bool Initialize(string path);
     Graph GetVertices();
-    void GetVerticesCopy(Graph &graph);
+    void GetVerticesCopy(Graph &graph) const;
     void RemoveEdge(Vertex w, Vertex v);
     
 private:
