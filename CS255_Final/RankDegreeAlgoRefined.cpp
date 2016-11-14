@@ -65,12 +65,16 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
         {
             Vertex *p_w = &(seeds[i]);
             
+            if (p_w->friends.size() == 0)
+                continue;
+            
             Vertex w;
             w.id = p_w->id;
             if (m_sub_vertices.find(w.id) == m_sub_vertices.end())
             {
                 m_sub_vertices.insert({w.id, w});
                 m_sub_graph.vertices_number++;
+                pending_friends.push_back(w.id);
                 sample_size++;
             }
             
