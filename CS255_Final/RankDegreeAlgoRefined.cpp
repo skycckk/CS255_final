@@ -96,11 +96,11 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
             }
             std::sort(friends_vertices_tuple.begin(), friends_vertices_tuple.end(), VertexCompGreater);
             std::default_random_engine generator;
-            std::uniform_int_distribution<int> rand_dist(0, top_k - 1);
+            std::uniform_int_distribution<int> rand_dist(0, (int)p_w->friends.size() - 1);
             for (int j = 0; j < top_k; j++)
             {
                 int toll = rand_dist(generator);
-                if (top_k > 1 && toll == 1)
+                if (top_k > 1 && toll == 0)
                     continue;
                 
                 Vertex friend_v;
