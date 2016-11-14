@@ -138,12 +138,7 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
             for (int i = 0; i < to_be_removed_sample_size; i++)
             {
                 int remove_id = pending_friends[i];
-                if (m_sub_vertices.at(remove_id).friends.size() == 0)
-                {
-                    // error handling
-                    cout << "WRONG......." << endl;
-                }
-                else
+                if (m_sub_vertices.at(remove_id).friends.size() != 0)
                 {
                     // remove "removed vertex" adjacent edges
                     std::vector<Vertex> *p_remove_friends = &(m_sub_vertices.at(remove_id).friends);
@@ -160,10 +155,9 @@ Graph RankDegreeAlgo::Process(UGraph orig_graph, int s, float p, int x)
                             }
                         }
                     }
-                    
-                    m_sub_vertices.erase(remove_id);
-                    m_sub_graph.vertices_number--;
                 }
+                m_sub_vertices.erase(remove_id);
+                m_sub_graph.vertices_number--;
             }
         }
         
