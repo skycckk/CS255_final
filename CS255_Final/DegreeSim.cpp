@@ -37,7 +37,6 @@ float DegreeSim::ProcessDegSim(Graph *p_g1, Graph *p_g2)
     if (m_degree_cdf[0].size() != 0 &&
         m_degree_cdf[1].size() != 0)
     {
-        
         std::vector<float> *p_large_degree_cdf = &(m_degree_cdf[1]);
         std::vector<float> *p_small_degree_cdf = &(m_degree_cdf[0]);
         if (m_degree_cdf[0].size() > m_degree_cdf[1].size())
@@ -71,19 +70,21 @@ void DegreeSim::GeneratePDF(Graph *p_g, int index)
             max_degree = degree;
     }
     
-    for (int i = 0; i < max_degree - min_degree + 1; i++)
+    for (int i = 0; i < max_degree + 1; i++)
         m_degree_hist[index].push_back(0);
     
     for (auto it = p_g->p_graph_type->begin(); it != p_g->p_graph_type->end(); it++)
     {
         int degree = (int)(it->second.friends.size());
-        m_degree_hist[index][degree - 1]++;
+        m_degree_hist[index][degree]++;
     }
     
     int number_of_vertices = p_g->vertices_number;
     
     for (int i = 0; i < m_degree_hist[index].size(); i++)
+    {
         m_degree_pdf[index].push_back(m_degree_hist[index][i] / (float)number_of_vertices);
+    }
 }
 
 void DegreeSim::GeneratePDF(Graph *p_g1, Graph *p_g2)
