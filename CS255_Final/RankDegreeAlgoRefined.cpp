@@ -47,8 +47,11 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
     
     // Initialize seeds
     std::vector<int> v_vertices;
-    for (int i = 0; i < number_vertices; i++)
-        v_vertices.push_back(i);
+    for (auto it = G.p_graph_type->begin(); it != G.p_graph_type->end(); it++)
+    {
+        std::vector<std::pair<int, int>> friends_vertices_tuple;
+        v_vertices.push_back(it->first);
+    }
     
     RandomShuffle(v_vertices);
     for (int i = 0; i < s; i++)
@@ -184,9 +187,10 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
         seeds.clear();
         if (need_random_jump)
         {
+            RandomShuffle(v_vertices);
             for (int i = 0; i < s; i++)
             {
-                int id = rand() % number_vertices;
+                int id = v_vertices[i];
                 seeds.push_back(G.p_graph_type->at(id));
             }
         }
