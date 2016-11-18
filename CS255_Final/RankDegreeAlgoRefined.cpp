@@ -102,9 +102,12 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
             std::uniform_int_distribution<int> rand_dist(0, (int)p_w->friends.size() - 1);
             for (int j = 0; j < top_k; j++)
             {
-                int toll = rand_dist(generator);
-                if (top_k > 1 && toll == 0)
-                    continue;
+                if (top_k > 1)
+                {
+                    int toll = rand_dist(generator);
+                    if (toll == 0)
+                        continue;
+                }
                 
                 Vertex friend_v;
                 friend_v.id = G.p_graph_type->at(friends_vertices_tuple[j].first).id;
