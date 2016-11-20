@@ -102,7 +102,7 @@ Graph RankDegreeAlgoRefined::Process(UGraph orig_graph, int s, float p, int x)
             std::uniform_int_distribution<int> rand_dist(0, (int)p_w->friends.size() - 1);
             for (int j = 0; j < top_k; j++)
             {
-                if (top_k > 1)
+                if (j > 0)
                 {
                     int toll = rand_dist(generator);
                     if (toll == 0)

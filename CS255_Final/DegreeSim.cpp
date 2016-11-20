@@ -98,6 +98,9 @@ void DegreeSim::GeneratePDF(Graph *p_g1, Graph *p_g2)
 
 void DegreeSim::GenerateCDF(int index)
 {
+    if (m_degree_pdf[index].size() == 0)
+        return;
+    
     m_degree_cdf[index].push_back(m_degree_pdf[index][0]);
     for (int i = 1; i < m_degree_hist[index].size(); i++)
         m_degree_cdf[index].push_back(m_degree_cdf[index][i - 1] + m_degree_pdf[index][i]);
