@@ -25,6 +25,7 @@ private:
     
     void RandomShuffle(std::vector<int> &v);
     void RandomShuffle(std::vector<std::pair<int, int>> &v);
+    std::vector<int> Kmeans1D(std::vector<int> samples, int k, float *p_means);
 };
 
 
