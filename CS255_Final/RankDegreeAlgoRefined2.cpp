@@ -202,6 +202,9 @@ Graph RankDegreeAlgoRefined2::Process(UGraph orig_graph, int s, float p, int x)
         gg_type = g1_type;
         gg.vertices_number = g1.vertices_number;
         
+        // Automatically adjust top-k ratio by assumption of comparison on degree distribution
+        p = (1.f - deg_sim * 0.8f);
+        
         // Deciding for selecting random and existing seeds
         // decay factor: 0.3
         int number_of_random_seeds = round((float)new_seeds.size() * deg_sim * 0.3f);
