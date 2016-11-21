@@ -13,6 +13,7 @@
 		B071078E1DCD2D800009C436 /* UGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B071078D1DCD2D800009C436 /* UGraph.cpp */; };
 		B07107921DCD2E0E0009C436 /* RankDegreeAlgo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107901DCD2E0E0009C436 /* RankDegreeAlgo.cpp */; };
 		B07107961DCFC7EA0009C436 /* DegreeSim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B07107951DCFC7EA0009C436 /* DegreeSim.cpp */; };
+		B0E905071DDFC0D3003F894B /* RankDegreeAlgoRefined2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0E905051DDFC0D3003F894B /* RankDegreeAlgoRefined2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,8 @@
 		B07107941DCD2E560009C436 /* RankDegreeAlgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankDegreeAlgo.h; sourceTree = "<group>"; };
 		B07107951DCFC7EA0009C436 /* DegreeSim.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DegreeSim.cpp; sourceTree = "<group>"; };
 		B07107991DCFC8150009C436 /* DegreeSim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DegreeSim.h; sourceTree = "<group>"; };
+		B0E905051DDFC0D3003F894B /* RankDegreeAlgoRefined2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RankDegreeAlgoRefined2.cpp; sourceTree = "<group>"; };
+		B0E905061DDFC0D3003F894B /* RankDegreeAlgoRefined2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankDegreeAlgoRefined2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				B05C79F11DD4FEC0001A66C0 /* AvgClusteringCoef.h */,
 				B047A8C51DD9395100F080B6 /* RankDegreeAlgoRefined.cpp */,
 				B047A8C71DD9396200F080B6 /* RankDegreeAlgoRefined.h */,
+				B0E905051DDFC0D3003F894B /* RankDegreeAlgoRefined2.cpp */,
+				B0E905061DDFC0D3003F894B /* RankDegreeAlgoRefined2.h */,
 			);
 			path = CS255_Final;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B071078C1DCD1DC90009C436 /* facebook_combined.txt */,
+				B0E905041DDF9265003F894B /* p2p-Gnutella30.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 				B07107871DCD19620009C436 /* main.cpp in Sources */,
 				B047A8C61DD9395100F080B6 /* RankDegreeAlgoRefined.cpp in Sources */,
 				B07107961DCFC7EA0009C436 /* DegreeSim.cpp in Sources */,
+				B0E905071DDFC0D3003F894B /* RankDegreeAlgoRefined2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
