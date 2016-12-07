@@ -44,6 +44,9 @@ float AvgClusteringCoef::GenerateACC(Graph *p_g)
     {
         Vertex vi = it->second;
         
+        if (vi.friends.size() == 0)
+            continue;
+        
         unsigned int total_friend_edges = 0;
         for (int j = 0; j < vi.friends.size(); j++)
         {
@@ -61,11 +64,7 @@ float AvgClusteringCoef::GenerateACC(Graph *p_g)
         vertices_count++;
     }
     
-    if (vertices_count != p_g->vertices_number)
-    {
-        printf("ERROR: Wrong Vertices\n");
-        return 0.f;
-    }
+    if (vertices_count == 0) return 0.f;
     
     acc = acc / vertices_count;
     return acc;
