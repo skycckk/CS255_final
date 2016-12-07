@@ -10,6 +10,7 @@
 #include "UGraph.h"
 #include "RankDegreeAlgo.h"
 #include "RankDegreeAlgoRefined.h"
+#include "RankDegreeAlgoRefined2.h"
 #include "DegreeSim.h"
 #include "AvgClusteringCoef.h"
 
@@ -42,9 +43,9 @@ int main(int argc, const char * argv[])
 //    fb_graph.Initialize("../../dataset/small_test.txt");
 //    const int vertex_size = 16;
     
-    const int total_number_random_test = 1;
+    const int total_number_random_test = 10;
     const int total_number_sample_size = 5;
-    const float sample_size_ratio_list[total_number_sample_size] = {0.1f, 0.2f, 0.3f, 0.4f, 0.5f};
+    const float sample_size_ratio_list[total_number_sample_size] = {0.2f, 0.3f, 0.4f, 0.5f, 0.6f};
     float deg_sim_avg[total_number_sample_size] = {0.f};
     float deg_sim2_avg[total_number_sample_size] = {0.f};
     float nmse_acc_avg[total_number_sample_size] = {0.f};
@@ -69,13 +70,12 @@ int main(int argc, const char * argv[])
             fb_graph_test = fb_graph;
             RankDegreeAlgo RD = RankDegreeAlgo();
             Graph rd_graph = RD.Process(fb_graph_test, max((int)roundf(vertex_size * 0.01f), 1),
-                                        0.3, vertex_size * sample_ratio);
+                                        0.3f, vertex_size * sample_ratio);
             
             fb_graph_test = fb_graph;
             RankDegreeAlgoRefined RD2 = RankDegreeAlgoRefined();
             Graph rd2_graph = RD2.Process(fb_graph_test, max((int)roundf(vertex_size * 0.01f), 1),
-                                          0.3, vertex_size * sample_ratio);
-            
+                                          0.3f, vertex_size * sample_ratio);
             
             DegreeSim degree_sim;
             float deg_sim = degree_sim.ProcessDegSim(&orig_graph, &rd_graph);
@@ -110,6 +110,8 @@ int main(int argc, const char * argv[])
         }
         deg_sim_avg[si] /= total_number_random_test;
         deg_sim2_avg[si] /= total_number_random_test;
+        nmse_acc_avg[si] /= total_number_random_test;
+        nmse_acc2_avg[si] /= total_number_random_test;
     }
     for (int si = 0; si < total_number_sample_size; si++)
     {
